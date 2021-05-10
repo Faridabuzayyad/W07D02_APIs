@@ -5,7 +5,7 @@ const port = 3000;
 app.use(express.json());
 
 const todos = [
-    { todo : "wake up", isCompleted: false},
+    {todo : "wake up", isCompleted: false},
     {todo : "Eat Breakfast", isCompleted: false}
 ];
 
@@ -14,6 +14,11 @@ app.get("/todos" , (req , res) => {
     res.json(todos);
 });
 
+app.post("/create/todo" , (req , res) => {
+    const newTodoElement = {todo: req.body.todo , isCompleted: req.body.isCompleted}
+    todos.push(newTodoElement);
+    res.json(todos);
+})
 
 app.listen(port , ()=> {
     console.log(`Practice app listening at http://localhost:${port}`)
