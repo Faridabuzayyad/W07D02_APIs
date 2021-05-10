@@ -2,10 +2,10 @@
   "name": "w07d02_apis",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "div": "nodemon index.js",
+    "start": "node app.js",
+    "div": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
