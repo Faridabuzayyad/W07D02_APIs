@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Faridabuzayyad/W07D02_APIs/issues"
   },
-  "homepage": "https://github.com/Faridabuzayyad/W07D02_APIs#readme"
+  "homepage": "https://github.com/Faridabuzayyad/W07D02_APIs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^16.1.0",
+    "nodemon": "^2.0.7"
+  }
 }

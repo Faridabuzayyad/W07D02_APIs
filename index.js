@@ -82,6 +82,18 @@ app.post("/create/user", (req, res) => {
   // res.json({ name, age })
 });
 
+//4. first-user endpoint that get the first element in the array
+app.get("/first-user" ,(req , res) =>{
+    res.status(200);
+    const firstUser = users[0];
+    res.json(firstUser);
+});
+
+//5. it gives you HTML Page and "Hello World" rendered .
+app.get("/" , (req , res) =>{
+    res.json("Hello World");
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
