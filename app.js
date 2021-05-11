@@ -78,6 +78,21 @@ app.put("/complete/todo/:name" , (req , res) => {
     }
 });
 
+app.get("/completed/todos" , (req , res) => {
+    completedTodos = todos.filter((element , index)=>{
+        return todos[index].isCompleted === true;
+    });
+
+    if(completedTodos.length > 0){
+        res.status(200);
+        res.json(completedTodos);
+    }
+    else{
+        res.status(404);
+        res.json("No completed Todos found");
+    }
+    
+});
 
 app.listen(port , ()=> {
     console.log(`Practice app listening at http://localhost:${port}`)
