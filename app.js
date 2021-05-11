@@ -27,6 +27,7 @@ app.put("/update/todo/:name" , (req , res) => {
         i = index;
         return element.todo === updatedTodo
     });
+
     if(match){
         todos[i]= req.body;
         res.status(200);
@@ -37,6 +38,26 @@ app.put("/update/todo/:name" , (req , res) => {
         res.send("No Match found")
     }
 });
+
+app.delete("/delete/todo/:name" , (req , res)=>{
+    const deletedTodo = req.params.name;
+    let i;
+    const match = todos.find((element , index)=>{
+        i = index;
+        return element.todo === deletedTodo
+    });
+
+    if(match){
+        res.status(200);
+        let deleted = todos.splice(i , 1);
+        res.send(deleted);
+    }
+    else{
+        res.status(404);
+        res.send("No Match found")
+    }
+});
+
 
 app.listen(port , ()=> {
     console.log(`Practice app listening at http://localhost:${port}`)
