@@ -31,11 +31,11 @@ app.put("/update/todo/:name" , (req , res) => {
     if(match){
         todos[i]= req.body;
         res.status(200);
-        res.send(todos[i]);
+        res.json(todos[i]);
     }
     else{
         res.status(404);
-        res.send("No Match found")
+        res.json("No Match found")
     }
 });
 
@@ -50,11 +50,31 @@ app.delete("/delete/todo/:name" , (req , res)=>{
     if(match){
         res.status(200);
         let deleted = todos.splice(i , 1);
-        res.send(deleted);
+        res.json(deleted);
     }
     else{
         res.status(404);
-        res.send("No Match found")
+        res.json("No Match found")
+    }
+});
+
+
+app.put("/complete/todo/:name" , (req , res) => {
+    const completedTodo = req.params.name;
+    let i;
+    const match = todos.find((element , index)=>{
+        i = index;
+        return element.todo === completedTodo
+    });
+
+    if(match){
+        res.status(200);
+        todos[i].isCompleted = true;
+        res.json("updated");
+    }
+    else{
+        res.status(404);
+        res.json("No Match found");
     }
 });
 
